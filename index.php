@@ -8,6 +8,8 @@ $statement->execute();
 $fashion = $statement->fetchAll();
 $statement->closeCursor();
 ?>
+
+<?php include 'includes/header.php';?>
 <!DOCTYPE html>
 <html>
 
