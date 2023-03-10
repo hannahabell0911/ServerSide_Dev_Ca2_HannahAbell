@@ -12,12 +12,14 @@ USE `Fashion`;
 
 DROP TABLE IF EXISTS `fashion`;
 CREATE TABLE `fashion` (
+
   `fashionID` int(11) NOT NULL,
   `fashionCode` varchar(10) NOT NULL,
   `fashionName` varchar(255) NOT NULL,
   `fashionPrice` decimal(10,2) NOT NULL,
    `fashionDate` date NOT NULL,
-   `fashionDescription`varchar(300) NOT NULL
+   `fashionDescription`varchar(300) NOT NULL,
+     `image_url` VARCHAR(255)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -25,10 +27,10 @@ CREATE TABLE `fashion` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `fashion` (`fashionID`, `fashionCode`, `fashionName`, `fashionPrice`,`fashionDate`,`fashionDescription`) VALUES
-(1, 'G', 'Guicci Saddle Bag', '699.00','2021/3/1', 'Nicely shaped with three zips and outside pockets'),
-(2, 'LV', 'Louis Vuitton Backpack', '1199.00','2022/10/1','Black with three inside pockets and leather interior'),
-(3, 'P', 'Prada Mini', '2517.00','2019/19/1','Very small with no pockets meant for small items');
+INSERT INTO `fashion` (`fashionID`, `fashionCode`, `fashionName`, `fashionPrice`,`fashionDate`,`fashionDescription`,`image_url`) VALUES
+(1, 'G', 'Guicci Saddle Bag', '699.00','2021/3/1', 'Nicely shaped with three zips and outside pockets','https://i.ibb.co/85ptkCM/saddle.jpg'),
+(2, 'LV', 'Louis Vuitton Backpack', '1199.00','2022/10/1','Black with three inside pockets and leather interior','https://www.dior.com/en_ie/fashion/products/M0456CTZQ_M928-mini-saddle%C2%A0bag-with-strap-blue-dior%C2%A0oblique-jacquard'),
+(3, 'P', 'Prada Mini', '2517.00','2019/19/1','Very small with no pockets meant for small items','https://www.dior.com/en_ie/fashion/products/M0456CTZQ_M928-mini-saddle%C2%A0bag-with-strap-blue-dior%C2%A0oblique-jacquard');
 
 
 
