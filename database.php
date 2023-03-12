@@ -1,14 +1,14 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=fashion';
-    $username = 'D00249620';
-    $password = 'hannah123';
+   
+    $servername = "localhost";
+    $username = "D00249620";
+    $password = "hannah123";
+    $dbname = "fashion";
 
-    try {
-        $db = new PDO($dsn, $username, $password);
-    } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        include('database_error.php');
-        exit();
-    }
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+    
     
 ?>

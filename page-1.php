@@ -2,11 +2,9 @@
 require_once('database.php');
 
 // Get products
-$queryFashion = 'SELECT * FROM fashion';
-$statement = $db->prepare($queryFashion);
-$statement->execute();
-$fashion = $statement->fetchAll();
-$statement->closeCursor();
+$sql = "SELECT * FROM fashion";
+$result = mysqli_query($conn, $sql);
+
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
@@ -14,37 +12,89 @@ header("Access-Control-Allow-Headers: Content-Type");
 ?>
 
 <?php include 'includes/header.php';?>
-<link href="css/mystyle1.css" rel="stylesheet">
+<link href="css/mystyle.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
 <body>
-<main class="container">
-<div class="bg-light" id= "header">
-      <h3 class="text-center">Golden</h3>
-      <p class="text-center">Fashion starts here at golden</p>
-    </div>
+<script src="js/bootstrap.bundle.min.js"></script>
+    <script> src="js/slider.js"</script>
 
- 
-    <h1>Best-Sellers List</h1>
-    <div class="card-container">
-            <?php foreach ($fashion as $fashion) : ?>
-              <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src= <?php echo $fashion['image_url']; ?> alt="Card image cap">
-  <div class="card-body">
-  <?php echo $fashion['fashionCode']; ?>
-    <h5 class="card-title"><?php echo $fashion['fashionName']; ?></h5>
-    <p class="card-text"><?php echo $fashion['fashionDescription']; ?></p>
-    <a href="#" class="btn btn-primary"><?php echo $fashion['fashionPrice'];?></a>
-    <a href="#" class="btn btn-primary"><?php echo $fashion['fashionDate'];?></a>
-  </div>
-              </div>
-      </div>
- 
   
-<?php endforeach; ?>
- 
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-  </div>
+<div class="slideshow-container">
 
-</main><!-- /.container -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-  </body>
+<div class="mySlides">
+  <div class="numbertext">1 / 3</div>
+  <img   src="images/long.jpg.crdownload" style="width:100%">
+  <div class="golden">Golden</div>
+</div>
+
+<div class="mySlides">
+  <div class="numbertext">2 / 3</div>
+  <img src="images/long2.png" style="width:100%">
+  <div class="golden">Golden</div>
+</div>
+
+<div class="mySlides">
+  <div class="numbertext">3 / 3</div>
+  <img src="images/long3.png" style="width:100%">
+  <div class="golden">Golden</div>
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+<div class ="header">Bestsellers</div> 
+    <main >
+    
+    <div class="wrapper">  
+<?php 
+while($fashion = mysqli_fetch_assoc($result)) {
+    echo '<div class="card">';
+    echo '<div class="product-img">
+    <img src="'.$fashion['image_url'].'"height="220" width="290" alt="'.$fashion['fashionCode'].'">';
+    echo '</div>';
+    echo '<h1><b>'.$fashion['fashionName'].'</b></h1>';
+    echo '<p>'.$fashion['fashionDescription'].'</p>';
+   echo '<div class="product-price-btn">';
+   echo ' <span>$'.$fashion['fashionPrice'].'</span>' ;
+   echo '<button type="button">buy now</button>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+}
+?>
+    </div>
+    
+    </div>
+    
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 6000); // Change image every 2 seconds
+}
+</script>
+
+</main>
+    
+</body>
+
 </html>

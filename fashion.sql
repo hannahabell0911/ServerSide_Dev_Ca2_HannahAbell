@@ -28,9 +28,9 @@ CREATE TABLE `fashion` (
 --
 
 INSERT INTO `fashion` (`fashionID`, `fashionCode`, `fashionName`, `fashionPrice`,`fashionDate`,`fashionDescription`,`image_url`) VALUES
-(1, 'G', 'Guicci Saddle Bag', '699.00','2021/3/1', 'Nicely shaped with three zips and outside pockets','https://i.ibb.co/85ptkCM/saddle.jpg'),
-(2, 'LV', 'Louis Vuitton Backpack', '1199.00','2022/10/1','Black with three inside pockets and leather interior','https://www.dior.com/en_ie/fashion/products/M0456CTZQ_M928-mini-saddle%C2%A0bag-with-strap-blue-dior%C2%A0oblique-jacquard'),
-(3, 'P', 'Prada Mini', '2517.00','2019/19/1','Very small with no pockets meant for small items','https://www.dior.com/en_ie/fashion/products/M0456CTZQ_M928-mini-saddle%C2%A0bag-with-strap-blue-dior%C2%A0oblique-jacquard');
+(1, 'D', 'Dior Saddle Bag', '3250','2021/3/1', 'Gallianos design features kidney-shaped curves, and a short detachable strap that was designed to be worn tight under the arm, embellished with horse bit-style CD buckles. The front flap fastens with velcro, and inside you will find a fabric lining.','https://i.ibb.co/85ptkCM/saddle.jpg'),
+(2, 'MJ', 'Marc Jacobs Tote', '450','2022/10/1','The tote bag is made from a new plush towelling effect fabric, which is soft to touch and ultra-feminine. The range includes black and white combinations and also some bright colours perfect for summer, the baby pink and sunshine yellow are team favourites.','https://i.ibb.co/dmLby0j'),
+(3, 'P', 'Prada Mini', '2517','2019/19/1','outstanding quality, unique designs made from soft, high-quality leather and tough durable synthetics.','https://i.ibb.co/60rCnJy/SHANPRA219091-1-XL.jpg');
 
 
 
