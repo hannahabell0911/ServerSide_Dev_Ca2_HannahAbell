@@ -1,14 +1,15 @@
-<?php
-   
-    $servername = "localhost";
-    $username = "D00249620";
-    $password = "hannah123";
-    $dbname = "fashion";
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-    
-    
+
+<?php
+    $dsn = 'mysql:host=localhost;dbname=D00249620';
+    $username = 'D00249620';
+    $password = 'dyPSnVPj';
+
+    try {
+        $db = new PDO($dsn, $username, $password);
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('database_error.php');
+        exit();
+    }
 ?>

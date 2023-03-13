@@ -1,5 +1,21 @@
 <?php
-require_once('database.php');
+$host = "localhost";
+$username = "D00249620";
+$password = "dyPSnVPj";
+$database = "D00249620";
+
+// Create connection
+$conn = mysqli_connect($host, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Now you can execute queries using the $conn variable
+$sql = "SELECT * FROM fashion";
+$result = mysqli_query($conn, $sql);
+
 
 // Get products
 $sql = "SELECT * FROM fashion";
@@ -11,12 +27,13 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 ?>
 
+
+
 <?php include 'includes/header.php';?>
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
-    <script> src="js/slider.js"</script>
 
   
 <div class="slideshow-container">
@@ -46,25 +63,23 @@ header("Access-Control-Allow-Headers: Content-Type");
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
-<div class ="header">Bestsellers</div> 
+
     <main >
     
     <div class="wrapper">  
 <?php 
 while($fashion = mysqli_fetch_assoc($result)) {
-    echo '<div class="card">';
-    echo '<div class="product-img">
-    <img src="'.$fashion['image_url'].'"height="220" width="290" alt="'.$fashion['fashionCode'].'">';
-    echo '</div>';
-    echo '<h1><b>'.$fashion['fashionName'].'</b></h1>';
-    echo '<p>'.$fashion['fashionDescription'].'</p>';
-   echo '<div class="product-price-btn">';
-   echo ' <span>$'.$fashion['fashionPrice'].'</span>' ;
-   echo '<button type="button">buy now</button>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+  echo '<div class="card">';
+  echo '<div class="product-img">
+  <img src="'.$fashion['image_url'].'"height="220" width="290" alt="'.$fashion['fashionCode'].'">';
+  echo '</div>';
+  echo '<h1><b class ="product-name">'.$fashion['fashionName'].'</b></h1>';
+  echo '<p class= "product-description">'.$fashion['fashionDescription'].'</p>';
+ echo '<div class="product-price-btn">';
+ echo ' <span>$'.$fashion['fashionPrice'].'</span>' ;
+ echo '<button type="button">buy now</button>';
+  echo '</div>';
+  echo '</div>';
 }
 ?>
     </div>
@@ -98,3 +113,4 @@ function showSlides() {
 </body>
 
 </html>
+<?php include 'includes/footer.php';?>

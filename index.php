@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php include 'includes/header.php';?>
-<?php include 'includes/footer.php';?>
+
 <!DOCTYPE html>
 <html>
 
@@ -48,3 +48,4 @@ error_reporting(E_ALL);
 
 </body>
 </html>
+<?php include 'includes/footer.php';?>
